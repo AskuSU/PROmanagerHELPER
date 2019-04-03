@@ -1,0 +1,10 @@
+C:\Users\Zahar\source\repos\PROmanagerHELPER\PROmanagerHELPER\bin\x64\Debug\PROmanagerHELPER.exe.config
+C:\Users\Zahar\source\repos\PROmanagerHELPER\PROmanagerHELPER\bin\x64\Debug\PROmanagerHELPER.exe
+C:\Users\Zahar\source\repos\PROmanagerHELPER\PROmanagerHELPER\bin\x64\Debug\PROmanagerHELPER.pdb
+C:\Users\Zahar\source\repos\PROmanagerHELPER\PROmanagerHELPER\obj\x64\Debug\PROmanagerHELPER.csprojAssemblyReference.cache
+C:\Users\Zahar\source\repos\PROmanagerHELPER\PROmanagerHELPER\obj\x64\Debug\PROmanagerHELPER.Form1.resources
+C:\Users\Zahar\source\repos\PROmanagerHELPER\PROmanagerHELPER\obj\x64\Debug\PROmanagerHELPER.Properties.Resources.resources
+C:\Users\Zahar\source\repos\PROmanagerHELPER\PROmanagerHELPER\obj\x64\Debug\PROmanagerHELPER.csproj.GenerateResource.cache
+C:\Users\Zahar\source\repos\PROmanagerHELPER\PROmanagerHELPER\obj\x64\Debug\PROmanagerHELPER.csproj.CoreCompileInputs.cache
+C:\Users\Zahar\source\repos\PROmanagerHELPER\PROmanagerHELPER\obj\x64\Debug\PROmanagerHELPER.exe
+C:\Users\Zahar\source\repos\PROmanagerHELPER\PROmanagerHELPER\obj\x64\Debug\PROmanagerHELPER.pdb
