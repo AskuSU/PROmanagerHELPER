@@ -1,0 +1,16 @@
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\obj\Debug\HabraHabr.csprojAssemblyReference.cache
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\obj\Debug\HabraHabr.HabraForm.resources
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\obj\Debug\HabraHabr.Properties.Resources.resources
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\obj\Debug\HabraHabr.csproj.GenerateResource.cache
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\obj\Debug\HabraHabr.csproj.CoreCompileInputs.cache
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\bin\Debug\HabraHabr.exe.config
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\bin\Debug\HabraHabr.exe
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\bin\Debug\HabraHabr.pdb
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\bin\Debug\AngleSharp.dll
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\bin\Debug\System.Text.Encoding.CodePages.dll
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\bin\Debug\AngleSharp.xml
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\obj\Debug\HabraHabr.csproj.CopyComplete
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\obj\Debug\HabraHabr.exe
+C:\Users\Zahar\source\repos\PROmanagerHELPER\HabraHabr\obj\Debug\HabraHabr.pdb
