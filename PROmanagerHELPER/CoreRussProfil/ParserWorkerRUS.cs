@@ -53,7 +53,7 @@ namespace PROmanagerHELPER.CoreRussProfil
         {
             var source = await loader.GetSourceByPageId(street);
             
-            var result = Parcer.Parse(source);
+            var result = Parcer.Parse(source, loader);
 
             OnNewData?.Invoke(this, result);
 

@@ -45,6 +45,14 @@ namespace PROmanagerHELPER
                     listBox1.Items.Add(arg2[i].Adress.NotFuulAdress);
                     listBox1.Items.Add(arg2[i].INN);
                     listBox1.Items.Add(arg2[i].OGRN);
+                    listBox1.Items.Add(arg2[i].TypeOfOwner);
+                    if (arg2[i].TypeOfOwner != "No Data")
+                    {
+                        listBox1.Items.Add(arg2[i].Owner.Surname);
+                        listBox1.Items.Add(arg2[i].Owner.Name);
+                        listBox1.Items.Add(arg2[i].Owner.MiddleName);
+                    }
+                    listBox1.Items.Add("---------------------------------");
 
 
                     i++;

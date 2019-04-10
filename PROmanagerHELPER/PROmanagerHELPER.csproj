@@ -94,8 +94,11 @@
     <Compile Include="CoreRussProfil\IParcerRUS.cs" />
     <Compile Include="CoreRussProfil\IParcerSettingsRUS.cs" />
     <Compile Include="CoreRussProfil\KompanyType\IKOMPANY.cs" />
+    <Compile Include="CoreRussProfil\KompanyType\IOWNER.cs" />
     <Compile Include="CoreRussProfil\KompanyType\KompanyClass.cs" />
+    <Compile Include="CoreRussProfil\KompanyType\OwnerClass.cs" />
     <Compile Include="CoreRussProfil\ParserWorkerRUS.cs" />
+    <Compile Include="CoreRussProfil\RussProfil\ParsingFromPage.cs" />
     <Compile Include="CoreRussProfil\RussProfil\RussProfilParser.cs" />
     <Compile Include="CoreRussProfil\RussProfil\RussProfilSettings.cs" />
     <Compile Include="MainForm.cs">

@@ -16,8 +16,7 @@ namespace PROmanagerHELPER.CoreRussProfil.KompanyType
         public int ID { get ; set ; }
         public IADRESS Adress { get ; set ; }
         public IEMPLOYEES NumberOfEmployees { get ; set ; }
-
-        
-        
+        public string TypeOfOwner { get ; set ; }
+        public IOWNER Owner { get ; set ; }
     }
 }
