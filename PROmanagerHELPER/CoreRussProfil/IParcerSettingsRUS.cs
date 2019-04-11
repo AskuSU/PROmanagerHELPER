@@ -15,5 +15,9 @@ namespace PROmanagerHELPER.CoreRussProfil
         string StreetPref { get; set; }
 
         string INNPref { get; set; }
+
+        string PrefixYur { get; set; } 
+
+        string PrefixIp { get; set; } 
     }
 }

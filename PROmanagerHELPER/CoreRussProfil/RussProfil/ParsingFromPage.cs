@@ -11,7 +11,7 @@ namespace PROmanagerHELPER.CoreRussProfil.RussProfil
 {
     class ParsingFromPage
     {
-        public ParsingFromPage(WebPage document, List<IKOMPANY> MyList)
+        public void ParsingFromPageMethod(WebPage document, List<IKOMPANY> MyList)
         {
             var items = document.Html.CssSelect(".company-item");
 
