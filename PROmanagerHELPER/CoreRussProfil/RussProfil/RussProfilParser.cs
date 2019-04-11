@@ -25,6 +25,9 @@ namespace PROmanagerHELPER.CoreRussProfil.RussProfil
             if (document.Html.CssSelect(@".main-content.search-result.emptyresult").Count() == 0)
             {
 
+                var StartNode = document.Html.CssSelect(".company-header__row");
+                string[] QuantityString = StartNode.InnerText.Split();
+
                 PagePars = new ParsingFromPage(document, list);
 
                 int a = 0;

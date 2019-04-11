@@ -58,9 +58,43 @@ namespace PROmanagerHELPER.CoreRussProfil.RussProfil
                     {
                         TypeOfOwner = mass[mass.IndexOf("ИНН") - 2];
                         string[] owner = mass[mass.IndexOf("ИНН") - 1].Split();
-                        Owner.Surname = owner[0];
-                        Owner.Name = owner[1];
-                        Owner.MiddleName = owner[2];
+                        int i = 0;
+                        foreach (var item in owner)
+                        {
+
+                            switch (i)
+                            {
+                                case 0:
+                                Owner.Surname = owner[i];
+                                break;
+                                case 1:
+                                Owner.Name = owner[i];
+                                break;
+                                case 2:
+                                Owner.MiddleName = owner[i];
+                                break;
+                            }
+                            i++;
+                        }
+                        if (i < 3)
+                        {
+                            for (int j = i; j < 3; j++)
+                            {
+                                switch (j)
+                                {
+                                    case 0:
+                                    Owner.Surname = "";
+                                    break;
+                                    case 1:
+                                    Owner.Name = "";
+                                    break;
+                                    case 2:
+                                    Owner.MiddleName = "";
+                                    break;
+                                }
+                            }
+                        }
+
                     }
                     else
                     {
