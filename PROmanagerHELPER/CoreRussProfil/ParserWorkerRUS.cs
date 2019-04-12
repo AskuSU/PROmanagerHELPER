@@ -51,9 +51,9 @@ namespace PROmanagerHELPER.CoreRussProfil
 
         private async void Worker(string street)
         {
-            var source = await loader.GetSourceByPageId(street);
-            
-            var result = Parcer.Parse(source, loader);
+            var source = await loader.GetSourceByPageId(street, 0);
+
+            var result = await Parcer.Parse(source, loader, street);
 
             OnNewData?.Invoke(this, result);
 

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using ScrapySharp.Network;
 using System.Text;
 using System;
+using System.Windows.Forms;
 
 namespace PROmanagerHELPER.CoreRussProfil
 {
@@ -21,13 +22,33 @@ namespace PROmanagerHELPER.CoreRussProfil
             
         }
 
-        public async Task<WebPage> GetSourceByPageId(string request)
+        public async Task<WebPage> GetSourceByPageId(string request, int Page)
         {
-            
+
             string currentUrl = url.Replace("{CurrentStreet}", WebUtility.UrlEncode(request));
-            WebPage source = await browser.NavigateToPageAsync(new Uri( currentUrl));
+            if (Page > 1)
+            {
+                currentUrl = currentUrl.Replace("{CurrentPage}", $"/{Page.ToString()}");
+            }
+            else
+            {
+                currentUrl = currentUrl.Replace("{CurrentPage}", "");
+            }
+
+            try
+            {
+                WebPage source = await browser.NavigateToPageAsync(new Uri(currentUrl));
+                return source;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString() ,$"Возникла ошибка на {Page.ToString()} странице", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
             
-            return source;
+            
+            
         }
 
         

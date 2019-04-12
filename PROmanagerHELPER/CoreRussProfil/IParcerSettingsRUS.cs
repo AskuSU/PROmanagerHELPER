@@ -19,5 +19,6 @@ namespace PROmanagerHELPER.CoreRussProfil
         string PrefixYur { get; set; } 
 
         string PrefixIp { get; set; } 
+        
     }
 }

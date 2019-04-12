@@ -17,7 +17,7 @@ namespace PROmanagerHELPER.CoreRussProfil.RussProfil
         ParsingFromPage PagePars = new ParsingFromPage(); 
 
         
-        public List<IKOMPANY> Parse(WebPage document, HtmlLoaderRUS loaderRUS)
+        public async Task<List<IKOMPANY>> Parse(WebPage document, HtmlLoaderRUS loaderRUS, string request)
         {
             
             var list = new List<IKOMPANY>();
@@ -46,10 +46,14 @@ namespace PROmanagerHELPER.CoreRussProfil.RussProfil
                 //Считаем первую страницу с организациями
                 PagePars.ParsingFromPageMethod(document, list);
 
+                int Page = 1;
                 while (N > list.Count)
                 {
-                    document = await loaderRUS.GetSourceByPageId("");
-                    PagePars.ParsingFromPageMethod(); 
+                    Page++;
+                    document = await loaderRUS.GetSourceByPageId(request, Page);
+                    PagePars.ParsingFromPageMethod(document, list);
+                    if (Page > 9)
+                        break;
                 }
 
                 

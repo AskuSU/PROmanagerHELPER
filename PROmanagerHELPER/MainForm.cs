@@ -65,7 +65,7 @@ namespace PROmanagerHELPER
         private void Parser_OnCompleted(object obj, List<IKOMPANY> arg2)
         {
             if (arg2 != null)
-                MessageBox.Show("All works done!");
+                MessageBox.Show($"Все организации загружены!\n{arg2.Count} организаций.");
 
         }
         private void button1_Click(object sender, EventArgs e)
