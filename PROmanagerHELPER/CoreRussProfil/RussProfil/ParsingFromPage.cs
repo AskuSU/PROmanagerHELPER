@@ -15,8 +15,8 @@ namespace PROmanagerHELPER.CoreRussProfil.RussProfil
         {
             var items = document.Html.CssSelect(".company-item");
 
-                foreach (HtmlNode node in items)
-                {
+                    foreach (HtmlNode node in items)
+                    {
 
                     //Объявим экземпляр Класса Компании
                     KompanyClass record = new KompanyClass();
@@ -26,11 +26,17 @@ namespace PROmanagerHELPER.CoreRussProfil.RussProfil
 
                     //Поиск названия компании
                     var node2 = node.SelectSingleNode("div [@class='company-item__title']");
-                    string Name = HtmlUtilities.DeleteSpaces(HtmlUtilities.ConvertToPlainText(node2.InnerText));
+                    string Name = HtmlUtilities.DeleteSpacesInWord(HtmlUtilities.DeleteSpaces(HtmlUtilities.ConvertToPlainText(node2.InnerText)));
 
-                    //Поиск ID компании
+                    //Поиск ID компании и определение ИП
                     string IDValue = node2.SelectSingleNode("a").Attributes["href"].Value;
-                    IDValue = (IDValue.Replace("/", "")).Replace("id", "");
+                    //IDValue = (IDValue.Replace("/", "")).Replace("id", "");
+                    string[] IDValueMas = IDValue.Split(new char[] { '/' });
+                    IDValue = IDValueMas[2];
+                    if (IDValueMas[1] == "ip")
+                    {
+                        record.IP = true;
+                    }
 
                     //поиск Адреса(NotFuulAdress)
                     node2 = node.SelectSingleNode("address [@class='company-item__text']");
@@ -50,8 +56,38 @@ namespace PROmanagerHELPER.CoreRussProfil.RussProfil
                         if (item.Trim() != "")
                             mass.Add(item.Trim());
                     }
-                    string INN = mass[(mass.IndexOf("ИНН") + 1)];
-                    string OGRN = mass[(mass.IndexOf("ОГРН") + 1)];
+                    string INN = "";
+                    if (mass.IndexOf("ИНН") >= 0)
+                    {
+                        INN = mass[(mass.IndexOf("ИНН") + 1)];
+                    }else
+                    {
+                        INN = "0";
+                    }
+
+                    string OGRN = "";
+                    if (record.IP)
+                    {
+                        if (mass.IndexOf("ОГРНИП") >= 0)
+                        {
+                            OGRN = mass[(mass.IndexOf("ОГРНИП") + 1)];
+                        }
+                        else
+                        {
+                            OGRN = "0";
+                        }                        
+                    }
+                    else
+                    {
+                        if (mass.IndexOf("ОГРН") >= 0)
+                        {
+                            OGRN = mass[(mass.IndexOf("ОГРН") + 1)];
+                        }
+                        else
+                        {
+                            OGRN = "0";
+                        }                    
+                    }
                     string TypeOfOwner = "";
                     IOWNER Owner = new OwnerClass();
                     if (mass.IndexOf("ИНН") > 0)
@@ -98,15 +134,69 @@ namespace PROmanagerHELPER.CoreRussProfil.RussProfil
                     }
                     else
                     {
-                        TypeOfOwner = "No Data";
-                        Owner.Surname = "";
-                        Owner.Name = "";
-                        Owner.MiddleName = "";
+                        if (record.IP)
+                        {
+                        var person = Name.Split();
+                        List<string> personList = new List<string>();
+                        foreach (var item in person)
+                        {
+                            if (item != "")
+                                personList.Add(item);
+                        }
+
+                        int i = 0;
+                        foreach (var item in personList)
+                        {
+
+                            switch (i)
+                            {
+                                case 1:
+                                    Owner.Surname = item;
+                                    break;
+                                case 2:
+                                    Owner.Name = item;
+                                    break;
+                                case 3:
+                                    Owner.MiddleName = item;
+                                    break;
+                                case 0:
+                                    TypeOfOwner = item;
+                                    break;
+                            }
+                            i++;
+                        }
+                        if (i < 4)
+                        {
+                            for (int j = i; j < 4; j++)
+                            {
+                                switch (j)
+                                {
+                                    case 1:
+                                        Owner.Surname = "";
+                                        break;
+                                    case 2:
+                                        Owner.Name = "";
+                                        break;
+                                    case 3:
+                                        Owner.MiddleName = "";
+                                        break;
+                                }
+                            }
+                        }
+                        
+                        }
+                        else
+                        {
+                            TypeOfOwner = "No Data";
+                            Owner.Surname = "";
+                            Owner.Name = "";
+                            Owner.MiddleName = "";
+                        }
                     }
 
                     //Передача данных
                     record.Name = Name;
-                    record.ID = Convert.ToInt32(IDValue);
+                    record.ID = Convert.ToInt64(IDValue);
                     record.Adress.StatusFullAdress = false;
                     record.Adress.NotFuulAdress = Adress;
                     record.INN = Convert.ToInt64(INN);
@@ -114,7 +204,7 @@ namespace PROmanagerHELPER.CoreRussProfil.RussProfil
                     record.TypeOfOwner = TypeOfOwner;
                     record.Owner = Owner;
                     MyList.Add(record);
-                }            
+                    }            
         }
     }
 }

@@ -14,15 +14,18 @@ namespace PROmanagerHELPER.CoreRussProfil
 
         readonly string url;
 
+        IParcerSettingsRUS SETTINGS;
+
         public HtmlLoaderRUS(IParcerSettingsRUS settings)
         {
+            SETTINGS = settings;
             browser = new ScrapingBrowser();
             browser.Encoding = Encoding.UTF8;
             url = $"{settings.BaseUrl}{settings.StreetPref}";
             
         }
 
-        public async Task<WebPage> GetSourceByPageId(string request, int Page)
+        public async Task<WebPage> GetSourceByPageId(string request, int Page, int vibor)
         {
 
             string currentUrl = url.Replace("{CurrentStreet}", WebUtility.UrlEncode(request));
@@ -34,6 +37,19 @@ namespace PROmanagerHELPER.CoreRussProfil
             {
                 currentUrl = currentUrl.Replace("{CurrentPage}", "");
             }
+            switch (vibor)
+            {
+                case 1:
+                    currentUrl += SETTINGS.PrefixYur;
+                    break;
+                case 2:
+                    currentUrl += SETTINGS.PrefixIp;
+                    break;
+
+                default:
+                    break;
+            }
+
 
             try
             {

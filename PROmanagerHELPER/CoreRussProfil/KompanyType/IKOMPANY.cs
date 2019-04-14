@@ -15,9 +15,10 @@ namespace PROmanagerHELPER.CoreRussProfil.KompanyType
         Int64 INN { get; set; }
         Int64 OGRN { get; set; }
         int KPP { get; set; }
-        int ID { get; set; }
+        Int64 ID { get; set; }
         string TypeOfOwner { get; set; }
         IOWNER Owner { get; set;}
+        bool IP { get; set; }
 
     }
 }

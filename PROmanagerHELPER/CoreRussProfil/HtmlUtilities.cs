@@ -23,6 +23,19 @@ namespace PROmanagerHELPER.CoreRussProfil
             return sw.ToString();
         }
 
+        public static string DeleteSpacesInWord(string st)
+        {
+            string _st = "";
+            foreach (string el in st.Split(' '))
+            {
+                if (el != "")
+                {
+                    _st += el + " ";
+                }
+            }
+            return _st;
+        }
+
         public static string DeleteSpaces(string OldText)
         {
             return OldText.Trim();

@@ -13,10 +13,11 @@ namespace PROmanagerHELPER.CoreRussProfil.KompanyType
         public long INN { get ; set ; }
         public long OGRN { get ; set ; }
         public int KPP { get ; set ; }
-        public int ID { get ; set ; }
+        public long ID { get ; set ; }
         public IADRESS Adress { get ; set ; }
         public IEMPLOYEES NumberOfEmployees { get ; set ; }
         public string TypeOfOwner { get ; set ; }
         public IOWNER Owner { get ; set ; }
+        public bool IP { get; set; } = false;
     }
 }

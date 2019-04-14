@@ -34,30 +34,47 @@ namespace PROmanagerHELPER.CoreRussProfil.RussProfil
 
                 string[] QuantityString3 = QuantityString.Except<string>(QuantityString2).ToArray<string>();
                 int N = 0; //кол-во организаций
+                List<int> QuantityList = new List<int>(); //кол-во организаций + ИП
                 foreach (var item in QuantityString3)
                 {
                     int a = 0;
                     if ( Int32.TryParse(item, out a))
                     {
-                        N = a;
+                        QuantityList.Add(a);
                     }
                 }                
 
-                //Считаем первую страницу с организациями
-                PagePars.ParsingFromPageMethod(document, list);
-
-                int Page = 1;
-                while (N > list.Count)
+                if (QuantityList.Count > 1)
                 {
-                    Page++;
-                    document = await loaderRUS.GetSourceByPageId(request, Page);
-                    PagePars.ParsingFromPageMethod(document, list);
-                    if (Page > 9)
-                        break;
+                    // Считаем Организации
+                    int Page = 0;
+                    N = QuantityList[0];
+                    while (N > list.Count)
+                    {
+                        Page++;
+                        document = await loaderRUS.GetSourceByPageId(request, Page, 1);
+                        PagePars.ParsingFromPageMethod(document, list);
+                        if (Page > 9)
+                            break;
+                    }
                 }
-
                 
-                                
+
+                ////Считаем первую страницу с организациями
+                //PagePars.ParsingFromPageMethod(document, list);
+
+                //int Page = 1;
+                //while (N > list.Count)
+                //{
+                //    Page++;
+                //    document = await loaderRUS.GetSourceByPageId(request, Page);
+                //    PagePars.ParsingFromPageMethod(document, list);
+                //    if (Page > 9)
+                //        break;
+                //}
+
+
+
                 return list;
             }
             else
