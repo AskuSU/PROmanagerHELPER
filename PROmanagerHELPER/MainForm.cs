@@ -23,6 +23,8 @@ namespace PROmanagerHELPER
 
         ParserWorkerRUS<List<IKOMPANY>> parser;
 
+        ExcelWorker excelWorker;
+
         public MainForm()
         {
             InitializeComponent();
@@ -31,6 +33,8 @@ namespace PROmanagerHELPER
 
             parser.OnCompleted += Parser_OnCompleted;
             parser.OnNewData += Parser_OnNewData;
+
+            excelWorker = new ExcelWorker();
         }
 
         private void Parser_OnNewData(object arg1, List<IKOMPANY> arg2)
@@ -100,5 +104,14 @@ namespace PROmanagerHELPER
             parser.Start(textStreet.Text, IsActive);
         }
 
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            excelWorker.WriteToExcel();
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            excelWorker.CloseExcelInProgramm();
+        }
     }
 }
