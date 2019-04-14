@@ -44,16 +44,16 @@ namespace PROmanagerHELPER.CoreRussProfil
             this.parcerSettings = parcerSettings;
         }
 
-        public void Start(string street)
+        public void Start(string street, int IsActive)
         {
-            Worker(street);
+            Worker(street, IsActive);
         }      
 
-        private async void Worker(string street)
+        private async void Worker(string street, int IsActive)
         {
-            var source = await loader.GetSourceByPageId(street, 0, 0);
+            var source = await loader.GetSourceByPageId(street, 0, 0, IsActive);
 
-            var result = await Parcer.Parse(source, loader, street);
+            var result = await Parcer.Parse(source, loader, street, IsActive);
 
             OnNewData?.Invoke(this, result);
 

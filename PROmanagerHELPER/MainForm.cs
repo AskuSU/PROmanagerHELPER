@@ -82,8 +82,23 @@ namespace PROmanagerHELPER
 
         private void Button3_Click(object sender, EventArgs e)
         {
+            int IsActive = 0;
+            if (radioButton1.Checked)
+            {
+                IsActive = 0;
+            }
+            if (radioButton2.Checked)
+            {
+                IsActive = 1;
+            }
+            if (radioButton3.Checked)
+            {
+                IsActive = 3;
+            }
+
             parser.Settings = new RussProfilSettings();
-            parser.Start(textStreet.Text);
+            parser.Start(textStreet.Text, IsActive);
         }
+
     }
 }

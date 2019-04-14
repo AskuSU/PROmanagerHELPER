@@ -5,6 +5,6 @@ namespace PROmanagerHELPER.CoreRussProfil
 {
     interface IParcerRUS<T> where T : class
     {
-        Task<T> Parse(WebPage document, HtmlLoaderRUS loaderRUS, string request);
+        Task<T> Parse(WebPage document, HtmlLoaderRUS loaderRUS, string request, int IsActive);
     }
 }

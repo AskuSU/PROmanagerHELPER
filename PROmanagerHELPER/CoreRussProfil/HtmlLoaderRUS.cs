@@ -25,7 +25,7 @@ namespace PROmanagerHELPER.CoreRussProfil
             
         }
 
-        public async Task<WebPage> GetSourceByPageId(string request, int Page, int vibor)
+        public async Task<WebPage> GetSourceByPageId(string request, int Page, int vibor, int IsActive)
         {
 
             string currentUrl = url.Replace("{CurrentStreet}", WebUtility.UrlEncode(request));
@@ -46,6 +46,18 @@ namespace PROmanagerHELPER.CoreRussProfil
                     currentUrl += SETTINGS.PrefixIp;
                     break;
 
+                default:
+                    break;
+            }
+
+            switch (IsActive)
+            {
+                case 0:
+                    currentUrl += SETTINGS.PrefixIsActive.Replace("{CurrentActive}", IsActive.ToString());
+                    break;
+                case 1:
+                    currentUrl += SETTINGS.PrefixIsActive.Replace("{CurrentActive}", IsActive.ToString());
+                    break;
                 default:
                     break;
             }
