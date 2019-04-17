@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace ExcelMS
 {
@@ -14,9 +15,9 @@ namespace ExcelMS
             //С помощью автоматизации вы можете передавать данные в рабочий лист Exel по одной ячейке
 
             // Start a new workbook in Excel.
-            m_objExcel = new Excel.Application();
-            m_objBooks = (Excel.Workbooks)m_objExcel.Workbooks;
-            m_objBook = (Excel._Workbook)(m_objBooks.Add(m_objOpt));
+            var m_objExcel = new Excel.Application();
+            var m_objBooks = (Excel.Workbooks)m_objExcel.Workbooks;
+            var m_objBook = (Excel._Workbook)(m_objBooks.Add(m_objOpt));
 
             // Add data to cells in the first worksheet in the new workbook.
             m_objSheets = (Excel.Sheets)m_objBook.Worksheets;
