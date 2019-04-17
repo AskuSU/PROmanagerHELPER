@@ -19,11 +19,13 @@ namespace PROmanagerHELPER
 {
     public partial class MainForm : Form
     {
-       // private static string StrRequestINN = null;
+        // private static string StrRequestINN = null;
 
         ParserWorkerRUS<List<IKOMPANY>> parser;
 
         ExcelWorker excelWorker;
+
+        List<IKOMPANY> list;
 
         public MainForm()
         {
@@ -70,6 +72,7 @@ namespace PROmanagerHELPER
         {
             if (arg2 != null)
                 MessageBox.Show($"Все организации загружены!\n{arg2.Count} организаций.");
+            list = arg2;
 
         }
         private void button1_Click(object sender, EventArgs e)
@@ -106,7 +109,7 @@ namespace PROmanagerHELPER
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            excelWorker.WriteToExcel();
+            excelWorker.WriteToExcel(list);
         }
 
         private void Button5_Click(object sender, EventArgs e)

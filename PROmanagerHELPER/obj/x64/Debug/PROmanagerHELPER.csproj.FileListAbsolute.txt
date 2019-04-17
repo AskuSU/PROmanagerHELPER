@@ -263,3 +263,4 @@ C:\Users\АндрейACER\source\repos\PROmanagerHELPER\PROmanagerHELPER\obj\x64
 C:\Users\АндрейACER\source\repos\PROmanagerHELPER\PROmanagerHELPER\obj\x64\Debug\PROmanagerHELPER.exe
 C:\Users\АндрейACER\source\repos\PROmanagerHELPER\PROmanagerHELPER\obj\x64\Debug\PROmanagerHELPER.pdb
 C:\Users\Zahar\source\repos\PROmanagerHELPER\PROmanagerHELPER\obj\x64\Debug\PROmanagerHELPER.csproj.ResolveComReference.cache
+C:\Users\АндрейACER\source\repos\PROmanagerHELPER\PROmanagerHELPER\obj\x64\Debug\PROmanagerHELPER.csproj.ResolveComReference.cache

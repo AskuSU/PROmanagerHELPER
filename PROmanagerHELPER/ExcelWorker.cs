@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 using Microsoft.Office.Interop.Excel;
 using PROmanagerHELPER.CoreRussProfil.KompanyType;
@@ -22,7 +23,7 @@ namespace PROmanagerHELPER
 
         
         // Передаём данные в Excel
-        public void WriteToExcel(/*/List<IKOMPANY> list/*/)
+        public void WriteToExcel(List<IKOMPANY> list)
         {
             // Открываем приложение
             application = new Application
@@ -40,14 +41,24 @@ namespace PROmanagerHELPER
             worksheet = workBook.ActiveSheet as Worksheet;
 
             // Записываем данные
-            worksheet.Range["A2"].Value = DateTime.Now;
-            worksheet.Range["A4"].Value = "Text1";
-            worksheet.Range["A6"].Value = "Text2";
+            //worksheet.Range["A2"].Value = DateTime.Now;
+            //worksheet.Range["A4"].Value = "Text1";
+            //worksheet.Range["A6"].Value = "Text2";
             //for (int i = 0; i < checkedListData3.Items.Count; i++)
             //{
             //    worksheet.Cells[i + 8, 1].Value = checkedListData3.Items[i];
             //    worksheet.Cells[i + 8, 2].Value = checkedListData3.GetItemChecked(i) ? "Checked" : "Unchecked";
             //}
+
+            int i = 0;
+            foreach (var item in list)
+            {
+                worksheet.Cells[i + 2, 12].Value = item.ID;
+                worksheet.Cells[i + 2, 5].Value = item.INN;
+                worksheet.Cells[i + 2, 2].Value = item.Name;
+                worksheet.Cells[i + 2, 11].Value = item.Adress.NotFuulAdress;
+                i++;
+            }
 
             // Показываем приложение
             application.Visible = true;
@@ -59,9 +70,20 @@ namespace PROmanagerHELPER
         public void CloseExcelInProgramm()
         {
             // Сохраняем и закрываем 
-            string savedFileName = "book1.xlsx";
-            workBook.SaveAs(Path.Combine(Environment.CurrentDirectory, savedFileName));
-            CloseExcel();
+            try
+            {
+                string savedFileName = "book1.xlsx";
+                workBook.SaveAs(Path.Combine(Environment.CurrentDirectory, savedFileName));
+                CloseExcel();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Не сохранено!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                CloseExcel();
+            }
         }
 
         public void CloseExcel()
